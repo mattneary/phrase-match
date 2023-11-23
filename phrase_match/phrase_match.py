@@ -117,7 +117,6 @@ def smith_waterman(seq1, seq2):
 
 def phrase_match(src, dest):
     a1, a2, idx1, idx2 = smith_waterman(src, dest)
-
     idx_pairs = [(a, b) for a, b in zip(idx1, idx2) if a != -1 and b != -1]
     range_pairs = [(idx_pairs[0], idx_pairs[0])]
     for a, b in idx_pairs[1:]:
