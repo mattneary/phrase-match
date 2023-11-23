@@ -2,7 +2,7 @@
 
 ## Usage
 
-To run coloring on an example set of words, run:
+To run the example, run:
 
 ```sh
 poetry install

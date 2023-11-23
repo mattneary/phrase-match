@@ -1,17 +1,15 @@
 from .phrase_match import phrase_match
 import fitz
-import html2text
 
-h = html2text.HTML2Text()
-doc = fitz.open('attention.pdf')
+doc = fitz.open('paper.pdf')
 page = doc[0]
 txt = ''.join(page.get_text().splitlines())
-html = page.get_text("html")
-md = h.handle(html)
+tex = open('paper.tex', 'r').read()
+print(tex)
 
-rhizomes = phrase_match(md, txt)
+rhizomes = phrase_match(tex, txt)
 for ((a1, a2), (b1, b2)) in rhizomes:
     print('{}-{} -> {}-{}'.format(a1, a2, b1, b2))
-    print(md[a1:a2+1])
+    print(tex[a1:a2+1])
     print(txt[b1:b2+1])
     print('------')
